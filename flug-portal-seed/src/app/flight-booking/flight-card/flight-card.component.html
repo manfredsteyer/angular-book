@@ -1,0 +1,34 @@
+<div [flightE2eLocator]="'flight-card-' + item.id"
+     style="padding:20px;"
+
+     [@select]="isSelected()"
+
+     [@hover]="hoverState"
+     (mouseenter)="toggleHover()"
+     (mouseleave)="toggleHover()"
+
+     @specialAnimation
+     (@specialAnimation.start)="setStatus($event)"
+     (@specialAnimation.done)="setStatus($event)"
+
+     (swipeleft)="select()"
+>
+    <h2>{{item.from}} - {{item.to}}</h2>
+    <p>Flugnr. #{{item.id}}</p>
+    <p>Datum: {{item.date | date:'dd.MM.yyyy HH:mm'}}</p>
+
+    <div style="height:40px">
+        <p>
+            <input *ngIf="hoverState"
+                   @button
+
+                   type="button"
+                   value="Auswählen"
+                   class="btn btn-default"
+                   (click)="select()"/>
+        </p>
+    </div>
+
+    <ng-content></ng-content>
+
+</div>

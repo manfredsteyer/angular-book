@@ -1,0 +1,100 @@
+<h1>Flight Search (Multistop)</h1>
+
+<form novalidate [formGroup]="filter">
+
+    <div class="form-group">
+        <label>From</label>
+        <input class="form-control" formControlName="from">
+
+        <div *ngIf="!filter.get('from')?.valid && !filter.get('from')?.pending ">
+            Validierungsfehler. Bitte prüfen Sie Ihre Eingaben.
+        </div>
+
+        <flight-validation-errors [errors]="filter.get('from').errors">
+        </flight-validation-errors>
+    </div>
+
+    <div class="form-group">
+        <label>To</label>
+        <input class="form-control" formControlName="to" name="to">
+
+        <flight-validation-errors [errors]="filter.get('to').errors">
+        </flight-validation-errors>
+
+    </div>
+
+    <!--
+    <div *ngIf="!filter.controls['stopovers'].valid">
+        Error regarding stopovers
+    </div>
+    -->
+
+    <div *ngIf="filter.get('stopovers').hasError('multistop')">
+        This sequence is not supported
+    </div>
+
+
+    <div formArrayName="stopovers">
+        <div *ngFor="let stopover of filter.get('stopovers')?.controls; let i = index">
+
+            <div [formGroupName]="i" class="panel panel-default" >
+                <div class="panel-body">
+
+                    <div class="form-group">
+                        <label>Stopover</label>
+                        <input class="form-control" formControlName="city">
+                        <flight-validation-errors [errors]="filter.get('stopovers').at(i).get('city').errors">
+                        </flight-validation-errors>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Duration</label>
+                        <input class="form-control" formControlName="duration">
+                        <flight-validation-errors [errors]="filter.get('stopovers').at(i).get('duration').errors">
+                        </flight-validation-errors>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <button
+            class="btn btn-primary"
+            name="btnSearch"
+            [disabled]="!filter.valid"
+            (click)="search()">Search
+        </button>
+
+        <button
+                class="btn btn-primary"
+                name="btnAddStopover"
+                (click)="addStopover()">Add Stopover
+        </button>
+
+        <button
+                class="btn btn-primary"
+                name="btnRemoveStopover"
+                (click)="removeStopover()">Remove Stopover
+        </button>
+
+    </div>
+</form>
+
+<div class="row">
+    <div *ngFor="let f of flights" class="col-sm-6 col-md-4 col-lg-3 ">
+        <flight-card [item]="f"
+                     [(selectedItem)]="selectedFlight">
+        </flight-card>
+
+    </div>
+</div>
+
+<div class="row" style="margin-top:40px">
+<pre>Warenkorb
+----------------------
+{{selectedFlight | json}}
+</pre>
+</div>

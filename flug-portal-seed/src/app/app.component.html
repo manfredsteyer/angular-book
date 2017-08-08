@@ -1,0 +1,45 @@
+<nav class="navbar navbar-default">
+    <ul class="nav navbar-nav">
+        <li routerLinkActive="active"><a [routerLink]="['/home', {showDetail:false}]"
+                                         [queryParamsHandling]="true">Home</a></li>
+        <li routerLinkActive="active"><a flightE2eLocator="flug-buchen" [routerLink]="['/flight-booking']"
+                                         [queryParamsHandling]="true">Flug buchen</a></li>
+        <li routerLinkActive="active"><a [routerLink]="['/bookings']" [queryParamsHandling]="true">Ihre Buchungen</a>
+        </li>
+
+
+        <li>
+            <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Rechnungen <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+                <li routerLinkActive="active"><a routerLink="invoices-tabs">Rechnungen</a></li>
+                <li routerLinkActive="active"><a routerLink="invoices-alt-tabs">Rechnungen (Alternative)</a></li>
+                <li routerLinkActive="active"><a routerLink="invoices-dd-tabs">Rechnungen (Data Driven)</a></li>
+            </ul>
+        </li>
+        <li><a (click)="activateExpertMode()">Expert Mode aktivieren</a></li>
+        <li><a (click)="deactivateExpertMode()">Expert Mode deaktivieren</a></li>
+
+        <li><a [routerLink]="[{outlets: { aux: ['history', {showDetail: true}] }}]">History einblenden</a></li>
+        <li><a [routerLink]="[{outlets: { aux: null }}]">History ausblenden</a></li>
+
+    </ul>
+</nav>
+
+<div class="container">
+
+    <div class="row">
+        <router-outlet></router-outlet>
+    </div>
+
+    <div class="row">
+        <router-outlet name="aux"></router-outlet>
+    </div>
+
+</div>
+
+<div *ngIf="showWaitInfo"
+     style="position:absolute; left:10px; top:10px; width:200px; height:50px; background-color: yellow">
+    Please wait ...
+</div>
+
+<!-- Fußzeile -->

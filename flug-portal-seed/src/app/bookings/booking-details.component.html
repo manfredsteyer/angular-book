@@ -1,0 +1,54 @@
+<h2>Angular I18n</h2>
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th i18n>From</th>
+        <th i18n="Beschreibung des Feldes">To</th>
+        <th i18n="Spezielle Bedeutung|Beschreibung des Feldes">Passengers</th>
+        <th>
+            <ng-container i18n="@@eigene.id">Children</ng-container>
+        </th>
+        <th>
+            <!--i18n: Spezielle Bedeutung|Beschreibung des Feldes -->
+            Return Flight
+            <!--/i18n-->
+        </th>
+        <th i18n-title title="Booking Date">#</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let booking of bookings">
+        <td>{{booking.from}}</td>
+        <td>{{booking.to}}</td>
+        <td i18n="booking.passengers">{{booking.passengers}} {booking.passengers, plural, =1 {Passenger} other {Passengers}}</td>
+        <td i18n="booking.children">{booking.children, plural, =0 {No children} =1 {One child} =2 {Two children} other {More than two children}}</td>
+        <td i18n="booking.returnFlight">{booking.returnFlight, select, yes {Yes} no {No}}</td>
+        <td i18n="booking.date">{{booking.date | date: 'M/d/y'}}</td>
+    </tr>
+    </tbody>
+</table>
+
+<h2>ngx-translate mit Angular Pipes</h2>
+<button (click)="selectLang('de')">DE</button><button (click)="selectLang('en')">EN</button>
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th translate>BOOKINGS.from</th>
+        <th translate [translateParams]="params">BOOKINGS.to</th>
+        <th>{{'BOOKINGS.passengers' | translate}}</th>
+        <th>{{'BOOKINGS.children' | translate:params}}</th>
+        <th [innerHTML]="'BOOKINGS.returnFlight' | translate"></th>
+        <th [title]="'BOOKINGS.bookingDate' | translate">#</th>
+    </tr>
+    </thead>
+    <tbody *ngIf="bookingTranslation">
+    <tr *ngFor="let booking of bookings">
+        <td>{{booking.from}}</td>
+        <td>{{booking.to}}</td>
+        <td>{{booking.passengers}} {{ booking.passengers | i18nPlural:bookingTranslation.passengerPlural }}</td>
+        <td>{{ booking.children | i18nPlural:bookingTranslation.childrenPlural }}</td>
+        <td>{{ booking.returnFlight | i18nSelect: bookingTranslation.returnFlightSelect }}</td>
+        <td>{{booking.date | date: bookingTranslation.dateFormat}}</td>
+    </tr>
+    </tbody>
+</table>

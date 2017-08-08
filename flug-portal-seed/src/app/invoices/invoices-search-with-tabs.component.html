@@ -1,0 +1,72 @@
+<h1>Invoices (with Tabs)</h1>
+
+<flight-tabbed-pane [currentPage]="page" (currentPageChange)="page = $event" #tp="flightTabbedPane">
+
+    <flight-tab title="Open">
+
+        <div class="header">
+            Header
+        </div>
+        <div class="content">
+            Content
+        </div>
+
+        <table class="table">
+            <tr *ngFor="let invoice of invoicesOpen">
+                <td>{{invoice.invoiceId}}</td>
+                <td>{{invoice.from}}</td>
+                <td>{{invoice.to}}</td>
+                <td>{{invoice.date | date:'dd.MM.yyyy'}}</td>
+                <td>€ {{invoice.price}}</td>
+            </tr>
+        </table>
+
+    </flight-tab>
+
+    <flight-tab title="Paid">
+
+        <div class="header">
+            Header
+        </div>
+        <div class="content">
+            Content
+        </div>
+
+        <table class="table">
+            <tr *ngFor="let invoice of invoicesPaid">
+                <td>{{invoice.invoiceId}}</td>
+                <td>{{invoice.from}}</td>
+                <td>{{invoice.to}}</td>
+                <td>{{invoice.date | date:'dd.MM.yyyy'}}</td>
+                <td>€ {{invoice.price}}, {{tp.currentPage}}</td>
+            </tr>
+        </table>
+    </flight-tab>
+
+</flight-tabbed-pane>
+
+<div>
+    <h2>Using Handle</h2>
+    <p>
+        Current Tab: {{ tp.currentPage + 1 }}
+    </p>
+    <p>
+        <button
+                [disabled]="tp.currentPage === 0"
+                class="btn btn-default"
+                (click)="tp.activatePage(0)">
+            Show Open Invoices
+        </button>
+        <button
+                [disabled]="tp.currentPage === 1"
+                class="btn btn-default"
+                (click)="tp.activatePage(1)">
+            Show Paid Invoices
+        </button>
+
+    </p>
+</div>
+
+<pre>
+    Page: {{page}}
+</pre>

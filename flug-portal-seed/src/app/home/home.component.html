@@ -1,0 +1,43 @@
+<h1 *ngIf="!givenName">Willkommen!</h1>
+<h1 *ngIf="givenName">Willkommen, {{givenName}}!</h1>
+
+<p *ngIf="needLogin" class="alert alert-warning">
+    Please login to use the requested part of this application.
+</p>
+
+<div class="panel panel-default">
+    <div class="panel-body">
+        <p>Login with Authorization Server</p>
+        <button class="btn btn-default" (click)="login()">Login</button>
+        <button class="btn btn-default" (click)="logout()">Logout</button>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-body">
+        <p>Login with Username/Password</p>
+
+        <p style="color:red; font-weight:bold" *ngIf="loginFailed">
+            Login wasn't successfull.
+        </p>
+
+        <div class="form-group">
+            <label>Username</label>
+            <input class="form-control" flightE2eLocator="user" [(ngModel)]="userName">
+        </div>
+        <div class="form-group">
+            <label>Password</label>
+            <input class="form-control" flightE2eLocator="password" type="password" [(ngModel)]="password">
+        </div>
+        <div class="form-group">
+            <button class="btn btn-default" flightE2eLocator="login" (click)="loginWithPassword()">Login</button>
+            <button class="btn btn-default" (click)="logout()">Logout</button>
+        </div>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-body">
+        <b>Demo-Account:</b> max/geheim
+    </div>
+</div>

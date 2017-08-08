@@ -1,0 +1,11 @@
+<h1>Invoices (with Data Driven Tabs and Dynamic Fields)</h1>
+
+<flight-ext-dd-tabbed-pane [items]="invoices" [displayProperties]="['invoiceId', 'date', 'from', 'to', 'price']">
+    <flight-ext-dd-list-tab title="Invoices">
+        <span *flightDynamicField="let value of 'date'">
+           {{value | date:'dd.MM.yyyy'}}
+        </span>
+    </flight-ext-dd-list-tab>
+    <flight-ext-dd-detail-tab title="Detail">
+    </flight-ext-dd-detail-tab>
+</flight-ext-dd-tabbed-pane>

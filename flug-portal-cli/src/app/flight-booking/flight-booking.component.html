@@ -1,0 +1,19 @@
+<div class="col-sm-3">
+    <ul class="nav nav-pills nav-stacked" style="margin-top:20px;">
+        <li routerLinkActive="active"><a [routerLink]="['./flight-search']">Flug auswählen</a></li>
+        <li routerLinkActive="active"><a [routerLink]="['./flight-search-reactive']">Flug auswählen (Reactiv)</a></li>
+        <li routerLinkActive="active"><a [routerLink]="['./flight-search-multistop']">Flug auswählen (Multistop)</a></li>
+        <li routerLinkActive="active"><a [routerLink]="['./flight-search-detail']">Flug auswählen (Detail)</a></li>
+
+        <li routerLinkActive="active"><a [routerLink]="['./passenger-search']">Passagier auswählen</a></li>
+    </ul>
+</div>
+
+<div class="col-md-9">
+    <router-outlet></router-outlet>
+
+    <hr>
+
+    <router-outlet name="aux2"></router-outlet>
+
+</div>

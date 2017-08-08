@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="d5e0dbc9fd4651759df915cdc6ba26fe3f17475f" datatype="html">
+        <source>From</source>
+        <target>Von</target>
+      </trans-unit>
+      <trans-unit id="63c9c3aa536dbd11120ae8feab62186c47838028" datatype="html">
+        <source>To</source>
+        <target>Nach</target>
+        <note priority="1" from="description">Beschreibung des Feldes</note>
+      </trans-unit>
+      <trans-unit id="67b19d1fe5d146b03b0b23cdd6fe54e35eec6e31" datatype="html">
+        <source>Passengers</source>
+        <target>Passagiere</target>
+        <note priority="1" from="description">Beschreibung des Feldes</note>
+        <note priority="1" from="meaning">Spezielle Bedeutung</note>
+      </trans-unit>
+      <trans-unit id="eigene.id" datatype="html">
+        <source>Children</source>
+        <target>Davon Kinder</target>
+      </trans-unit>
+      <trans-unit id="a82c8a41d9c47205f1193a6cbadc43b9091e5094" datatype="html">
+        <source>
+            Return Flight
+            </source>
+        <target><![CDATA[<i>Rückflug</i>]]></target>
+        <note priority="1" from="description">Beschreibung des Feldes</note>
+        <note priority="1" from="meaning">Spezielle Bedeutung</note>
+      </trans-unit>
+      <trans-unit id="11ae7eba671845e9da64e9c1b8033d0d7cad4863" datatype="html">
+        <source>Booking Date</source>
+        <target>Tag der Buchung</target>
+      </trans-unit>
+      <trans-unit id="af2bfd04cf1327e6e48d307f52a0bfaada1ac1eb" datatype="html">
+        <source><x id="INTERPOLATION"/> <x id="ICU"/></source>
+        <target><x id="INTERPOLATION"/> <x id="ICU"/></target>
+        <note priority="1" from="description">booking.passengers</note>
+      </trans-unit>
+      <trans-unit id="4a4554b83010b0cd3be21fe5a8cecd6af2501d91" datatype="html">
+        <source/>
+        <target>{booking.passengers, plural, =1 {Passagier} other {Passagiere}}</target>
+      </trans-unit>
+      <trans-unit id="ce78c2334a8324384adb155b4c30e65cfd6978a2" datatype="html">
+        <source/>
+        <target>{booking.children, plural, =0 {Keine Kinder} =1 {Ein Kind} =2 {Zwei Kinder} other {Mehr als zwei Kinder}}</target>
+        <note priority="1" from="description">booking.children</note>
+      </trans-unit>
+      <trans-unit id="8af843d16bb9a51bf812b01168b0d759ea39dc11" datatype="html">
+        <source/>
+        <target>{booking.returnFlight, select, yes {Ja} no {Nein}}</target>
+        <note priority="1" from="description">booking.returnFlight</note>
+      </trans-unit>
+      <trans-unit id="98809efef76c1281d8bc58db0461ba47f88dd239" datatype="html">
+        <source><x id="INTERPOLATION"/></source>
+        <target>{{booking.date | date: 'd.M.y'}}</target>
+        <note priority="1" from="description">booking.date</note>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

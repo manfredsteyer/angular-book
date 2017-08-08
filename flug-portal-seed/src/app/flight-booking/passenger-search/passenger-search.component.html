@@ -1,0 +1,28 @@
+<h2>Flugverbot</h2>
+<p>Aktuell haben folgende Passagiere Flugverbot:</p>
+<p *ngFor="let person of blackList">({{person.id}}) {{person.name}}</p>
+
+<h2>Passagier suchen</h2>
+<div class="form-group">
+    <label>Name</label>
+    <input [(ngModel)]="name" (input)="inputSubject.next($event)" class="form-control">
+</div>
+<h3 *ngIf="loading" style="color:red">Lade Passagiere...</h3>
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Passagier</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let passenger of listObservable | async">
+        <td>{{passenger.id}}</td>
+        <td>{{passenger.name}} {{passenger.lastName}}</td>
+        <td><button class="btn btn-default">Auswählen</button></td>
+    </tr>
+    </tbody>
+</table>
+
+<pre>Aktuell ist es: {{timeObservable | async | date:'HH:mm:ss'}}</pre>

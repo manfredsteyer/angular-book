@@ -1,0 +1,12 @@
+node_modules/
+dist/
+npm-debug.log*
+/.idea/
+/.vscode/
+/*.iml
+messages.xlf
+temp/
+out-tsc/
+debug.log
+coverage/
+screenshots/

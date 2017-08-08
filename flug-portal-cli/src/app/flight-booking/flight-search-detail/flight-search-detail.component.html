@@ -1,0 +1,103 @@
+<h1>Flight Search (Detail)</h1>
+
+<form #f="ngForm" novalidate>
+
+    <div ngModelGroup="route">
+
+        <div *ngIf="!f?.form.get('route')?.valid">
+            Error in route
+        </div>
+
+        <div class="form-group">
+            <label>From</label>
+            <input class="form-control" type="text" name="from" [(ngModel)]="from" required>
+            <div *ngIf="!f?.form.get('route')?.get('from')?.valid">
+                Required
+            </div>
+
+        </div>
+
+        <div class="form-group">
+            <label>To</label>
+            <input class="form-control" name="to" [(ngModel)]="to" required>
+        </div>
+
+    </div>
+
+    <div class="form-group">
+        <label>Nonstop
+            <input
+                    type="checkbox"
+                    class="checkbox"
+                    name="nonstop"
+                    [(ngModel)]="nonstop">
+        </label>
+    </div>
+
+    <div class="form-group">
+        <label>Flight Class</label>
+
+        <div *ngFor="let c of flightClasses">
+            <label>
+                <input
+                        type="radio"
+                        name="flightClass"
+                        [(ngModel)]="flightClass"
+                        [value]="c">
+                {{c.name}}
+            </label>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label>Luggage</label>
+
+        <select [(ngModel)]="luggage" name="luggage">
+            <option *ngFor="let l of luggageOptions" [ngValue]="l">{{l.name}}</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label>Date</label>
+
+        <flight-date-control [(ngModel)]="date" name="date"></flight-date-control>
+        {{date}}
+    </div>
+
+    <div class="form-group">
+        <label>Date</label>
+
+        <input [(ngModel)]="date" name="date2" flightDate>
+    </div>
+
+    <div class="form-group">
+        <button
+            flightE2eLocator="search"
+            class="btn btn-primary"
+            name="btnSearch"
+            [disabled]="!f.valid || animationInProgress"
+            (click)="search()">Search
+        </button>
+    </div>
+</form>
+
+<div class="row">
+    <div *ngFor="let f of flights" class="col-sm-6 col-md-4 col-lg-3 ">
+        <flight-card [item]="f"
+                     [(selectedItem)]="selectedFlight"
+                     (specialAnimationStatus)="disableButton($event)">
+
+            <a class="btn btn-default"
+               [routerLink]="['../flight-edit', f.id]">Editieren</a>
+
+        </flight-card>
+
+    </div>
+</div>
+
+<div class="row" style="margin-top:40px">
+<pre>Warenkorb
+----------------------
+{{selectedFlight | json}}
+</pre>
+</div>

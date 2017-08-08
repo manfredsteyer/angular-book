@@ -1,0 +1,26 @@
+<flight-tab-prototype title="Open">
+
+    <table class="table">
+        <tr *ngFor="let invoice of invoicesOpen">
+            <td>{{invoice.invoiceId}}</td>
+            <td>{{invoice.from}}</td>
+            <td>{{invoice.to}}</td>
+            <td>{{invoice.date | date:'dd.MM.yyyy'}}</td>
+            <td>€ {{invoice.price}}</td>
+        </tr>
+    </table>
+
+</flight-tab-prototype>
+
+<flight-tab-prototype title="Paid">
+
+    <table class="table">
+        <tr *ngFor="let invoice of invoicesPaid">
+            <td>{{invoice.invoiceId}}</td>
+            <td>{{invoice.from}}</td>
+            <td>{{invoice.to}}</td>
+            <td>{{invoice.date | date:'dd.MM.yyyy'}}</td>
+            <td>€ {{invoice.price}}</td>
+        </tr>
+    </table>
+</flight-tab-prototype>

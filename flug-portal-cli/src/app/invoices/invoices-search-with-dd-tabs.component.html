@@ -1,0 +1,12 @@
+<h1>Invoices (with Data Driven Tabs)</h1>
+
+<flight-dd-tabbed-pane [items]="invoices" [displayProperties]="['invoiceId', 'date', 'from', 'to', 'price']">
+    <flight-dd-list-tab title="Invoices">
+    </flight-dd-list-tab>
+
+    <flight-dd-inheritance-list-tab title="Invoices (Inheritance)">
+    </flight-dd-inheritance-list-tab>
+
+    <flight-dd-detail-tab title="Detail">
+    </flight-dd-detail-tab>
+</flight-dd-tabbed-pane>

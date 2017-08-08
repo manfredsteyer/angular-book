@@ -1,0 +1,25 @@
+{
+    "BOOKINGS": {
+        "from": "Von",
+        "to": "{{direction}} Nach",
+        "passengers": "Passagiere",
+        "children": "Davon Kinder ({{age}})",
+        "returnFlight": "<i>Rückflug</i>",
+        "bookingDate": "Tag der Buchung",
+        "passengerPlural": {
+            "=1": "Passagier",
+            "other": "Passagiere"
+        },
+        "childrenPlural": {
+            "=0": "Keine Kinder",
+            "=1": "Ein Kind",
+            "=2": "Zwei Kinder",
+            "other": "Mehr als zwei Kinder"
+        },
+        "returnFlightSelect": {
+            "yes": "Ja",
+            "no": "Nein"
+        },
+        "dateFormat": "d.M.y"
+    }
+}

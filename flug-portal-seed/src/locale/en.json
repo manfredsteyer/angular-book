@@ -1,0 +1,25 @@
+{
+    "BOOKINGS": {
+        "from": "From",
+        "to": "{{direction}} To",
+        "passengers": "Passengers",
+        "children": "Children ({{age}})",
+        "returnFlight": "<i>Return Flight</i>",
+        "bookingDate": "Booking Date",
+        "passengerPlural": {
+            "=1": "Passenger",
+            "other": "Passengers"
+        },
+        "childrenPlural": {
+            "=0": "No children",
+            "=1": "One child",
+            "=2": "Two children",
+            "other": "More than two children"
+        },
+        "returnFlightSelect": {
+            "yes": "Yes",
+            "no": "No"
+        },
+        "dateFormat": "M/d/y"
+    }
+}

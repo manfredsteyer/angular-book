@@ -1,0 +1,26 @@
+{
+    "compilerOptions": {
+        "target": "es5",
+        "module": "es2015",
+        "outDir": "out-tsc",
+        "moduleResolution": "node",
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
+        "baseUrl": "./",
+        "lib": [
+            "es2016",
+            "dom"
+        ]
+    },
+    "exclude": [
+        "**/*.spec.ts",
+        "src/main.aot.ts"
+    ],
+    "include": [
+        "src"
+    ],
+    "angularCompilerOptions": {
+        "genDir": "out-tsc/aot",
+        "skipMetadataEmit": true
+    }
+}
