@@ -1,10 +1,11 @@
 import { CharterFlight, Flight, ScheduledFlight } from './flight';
 import { FlightManager } from './flight-manager';
 
-import './address';
-import './exception';
-import './invoice';
-import './person';
+// Uncomment this to execute further examples:
+// import './address';
+// import './exceptions';
+// import './invoice';
+// import './person';
 
 function showFlight(f: Flight): void {
     console.debug('---- Flight ----');
