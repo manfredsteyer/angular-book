@@ -35,6 +35,6 @@ Danach findet man die Anwendung unter ``http://localhost:8081``.
 
 ## Weitere Infos
 
-siehe http://www.angular-college.com
+siehe http://angular-akademie.com/
 
 
