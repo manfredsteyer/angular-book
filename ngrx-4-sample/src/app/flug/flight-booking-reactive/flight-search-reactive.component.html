@@ -1,0 +1,109 @@
+
+
+
+
+
+<form [formGroup]="filter" >
+
+    <h1>Flug suchen (Reactive, dynamic)!</h1>
+
+    <div *ngFor="let m of metadata">
+        <label>{{m.label}}</label>
+        <input class="form-control" [formControlName]="m.name">
+    </div>
+
+    <hr width="5">
+
+    <h1>Flug suchen (Reactive)!</h1>
+
+    <div class="form-group">
+
+        <label>Von</label>
+        <input formControlName="from" class="form-control">
+
+        <div *ngIf="!filter.controls.from.valid">
+            Es ist ein Validierungsfehler aufgetreten!
+        </div>
+
+        <div *ngIf="filter.controls.from.hasError('minlength')">
+            Minimal 3 Zeichen
+        </div>
+
+        <div *ngIf="filter.controls.from.hasError('required')">
+            Pflichtfeld
+        </div>
+
+        <div *ngIf="filter.controls.from.hasError('pattern')">
+            Nur Buchstaben und Zahlen
+        </div>
+
+        <div *ngIf="filter.controls.from.hasError('city')">
+            Diese Stadt wird nicht angeflogen!
+        </div>
+
+        <div *ngIf="filter.controls.from.hasError('async-city')">
+            Für diese Stadt ist kein Flug mehr verfügbar!
+        </div>
+
+        <div *ngIf="filter.controls.from.pending">
+
+            <marquee>
+                Validierung wird ausgeführt!
+            </marquee>
+
+        </div>
+
+        <div>
+            {{ filter.controls.from.errors | json }}
+        </div>
+
+    </div>
+
+<div class="form-group">
+
+    <label>Nach</label>
+    <input formControlName="to" class="form-control">
+
+</div>
+
+<div class="form-group">
+
+   <button [disabled]="!filter.valid" class="btn btn-primary" (click)="search()">Suchen</button>
+
+</div>
+</form>
+
+<table class="table table-striped">
+
+    <!-- [class.active]="selectedFlight == f" -->
+    <!-- [ngClass]="{ active: selectedFlight == f}" -->
+    <!-- [ngStyle]="{ 'background-color': (selectedFlight == f)  'orange': 'inherit' }" -->
+    <!--
+    <tr *ngFor="let f of flights" [class.active]="selectedFlight == f">
+        <td>{{filter.id}}</td>
+        <td>{{filter.from | city:'short':'funny'}}</td>
+        <td>{{filter.to | city:'long'}}</td>
+        <td>{{filter.date | date:'dd.MM.yyyy HH:mm'}}</td>
+        <td><a (click)="select(f)">Auswählen</a></td>
+    </tr>
+    -->
+    <!--
+        xs: Handy
+        sm: Small, Tablet
+        md: Kleiner Bildschirm
+        lg: Großer Bildschirm
+    -->
+    <div *ngFor="let f of flights" class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+        <flight-card
+            [item]="f"
+            [selectedItem]="selectedFlight"
+            (selectedItemChange)="selectedFlight = $event">
+        </flight-card>
+    </div>
+</table>
+
+<pre>Warenkorb
+---------------------
+{{selectedFlight | json}}
+
+</pre>

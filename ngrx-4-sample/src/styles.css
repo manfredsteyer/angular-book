@@ -1,0 +1,76 @@
+/*
+body::before {
+    background-size: cover;
+    background-attachment: fixed;
+    background-image: url('assets/sea-1993791_1920.jpg');
+    content: '';
+    will-change: transform;
+    z-index: -1;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    position: fixed;
+}
+
+h1 {
+    color: white!important;
+}
+
+card h1 {
+    color: black!important;
+}
+
+
+.container {
+    margin-top:100px;
+}
+
+.card {
+    background-color: white;
+    padding: 30px;
+    padding-top:20px;
+    border-radius: 5px;
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+.card ul {
+    margin-top:0px!important;
+}
+
+.card h1{
+  color:black!important;
+  margin-bottom:40px;
+}
+
+.card-contensed {
+  padding: 10px!important;
+}
+
+.col {
+    padding: 0px!important;
+}
+
+.navbar-default {
+    background-color:inherit!important;
+    border-style: none!important;
+}
+
+.navbar li a {
+    color:white!important;
+    font-size:16px!important;
+}
+
+.navbar-brand {
+    color:white!important;
+}
+
+.active {
+  color: orange !important;
+}
+
+a {
+    cursor: pointer;
+}
+*/

@@ -1,0 +1,13 @@
+<form class="form-inline">
+    <input name="day" [(ngModel)]="day" maxlength="2" style="width:50px" class="form-control" >
+    .
+    <input name="month" [(ngModel)]="month" maxlength="2" style="width:50px" class="form-control">
+    .
+    <input name="year" [(ngModel)]="year" maxlength="4" style="width:70px" class="form-control">
+
+    <input name="hour" [(ngModel)]="hour" maxlength="2" style="width:50px" class="form-control">
+    :
+    <input name="minute" [(ngModel)]="minute" maxlength="2" style="width:50px" class="form-control">
+
+    <input type="button" value="Übernehmen" (click)="apply()" class="btn btn-default">
+</form>

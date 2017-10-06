@@ -1,0 +1,46 @@
+<h1>Boarding</h1>
+
+
+<button (click)="undo()" [disabled]="undoDisabled | async" class="btn btn-default"><span class="glyphicon glyphicon-backward"></span></button>
+<button (click)="redo()" [disabled]="redoDisabled | async" class="btn btn-default"><span class="glyphicon glyphicon-forward"></span></button>
+
+
+<h2>Summary</h2>
+
+<table class="table table-striped">
+    <tr>
+        <th style="color:red">Booked</th>
+        <th style="color:orange">Checked in</th>
+        <th style="color:green">Boarded</th>
+    </tr>
+    <tr>
+        <td style="color:red">{{countBooked | async}}</td>
+        <td style="color:orange">{{countCheckedIn | async}}</td>
+        <td style="color:green">{{countBoarded | async}}</td>
+    </tr>
+</table>    
+
+<h2>Details</h2>
+
+<table class="table table-striped">
+    
+    <tr>
+        <th>First Name</th>
+        <th>Name</th>
+        <th>Current Status</th>
+        <th>New Status</th>
+    </tr>
+    
+    <tr *ngFor="let b of bookings | async">
+        
+        <td>{{b.passagier.vorname}}</td>
+        <td>{{b.passagier.name}}</td>
+        <td [style.color]="b.buchungsStatus | buchungsStatusColor ">{{b.buchungsStatus | buchungsStatus}}</td>
+        <td>
+            <a style="cursor:hand" (click)="changeState(b, 0)">Booked</a> |
+            <a style="cursor:hand" (click)="changeState(b, 1)">Checked in</a> |
+            <a style="cursor:hand" (click)="changeState(b, 2)">Boarded</a>
+        </td>
+    </tr>
+
+</table>

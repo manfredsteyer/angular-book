@@ -1,0 +1,23 @@
+<nav class="navbar navbar-default">
+    <ul class="nav navbar-nav">
+        <li><a [routerLink]="['home']">Home</a></li>
+        <li><a [routerLink]="['flight-booking/flight-search']">Flug buchen</a></li>
+        <li><a [routerLink]="['boarding']">Boarding</a></li>
+        <li><a [routerLink]="[{outlets: { aux: 'history' }}]">Activate History</a></li>
+        <li><a [routerLink]="[{outlets: { aux: null }}]">Deactivate History</a></li>
+    </ul>
+</nav>
+
+<div class="container">
+    
+    <router-outlet></router-outlet>
+
+    <router-outlet name="aux"></router-outlet>
+
+<!--
+    <ngrx-store-log-monitor toggleCommand="ctrl-h" positionCommand="ctrl-m"></ngrx-store-log-monitor>
+-->
+<!--
+    Aktuelle Alternative zum log-monitor: Chrome Plugin Redux Dev Tools
+-->    
+</div>
