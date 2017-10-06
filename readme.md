@@ -2,7 +2,7 @@
 
 Beispiel             | Kapitel
 ---------------------|------------------
-flug-portal-cli      | Das Hauptbeispiel, welches auf der Angular CLI basiert.
+flug-portal-cli      | Das Hauptbeispiel, welches auf der Angular CLI basiert
 typescript-into      | Einführende Beispiele aus TypeScript-Kapitel
 flug-portal-seed     | Beispiel für Kapitel zu Tools und erweitertem Projektaufbau (webpack)
 ngrx-4-sample		 | Beispiel für Redux (@ngrx/store) Kapitel
