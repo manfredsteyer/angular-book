@@ -1,6 +1,12 @@
 # Beispiele zum Angular-Buch bei O'Reilly
 
-Die Beispielanwendung liegt in zwei Versionen vor: Während sich die meisten Kapitel auf das CLI-basierte Kapitel beziehen, kommt das Seed/webpack-basierte Beispiel für das Tooling-Kapitel zum Einsatz.
+Beispiel             | Kapitel
+---------------------|------------------
+flug-portal-cli      | Das Hauptbeispiel, welches auf der Angular CLI basiert.
+typescript-into      | Einführende Beispiele aus TypeScript-Kapitel
+flug-portal-seed     | Beispiel für Kapitel zu Tools und erweitertem Projektaufbau (webpack)
+ngrx-4-sample		 | Beispiel für Redux (@ngrx/store) Kapitel
+
 
 ## Vorbedingungen
 
