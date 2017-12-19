@@ -78,7 +78,7 @@ export class FlightSearchComponent implements OnInit {
 }
 ```
 
-Wie man hier sieht, gibt es auf den ersten Blick wenig Unterschiede zum alten ``Http``-Service. Lediglich die Typen und Pakte sind andere (``HttpClient``, ``HttpHeaders``, ``HttpParams`` aus ``@angular/common/http``) und die gelieferten Daten werden automatisch mit dem JSON-Parser in JavaScript-Objekte übergeführt. Der Aufruf von ``.map(resp => resp.json)`` entfällt somit. 
+Wie man hier sieht, gibt es auf den ersten Blick wenig Unterschiede zum alten ``Http``-Service. Lediglich die Typen und Pakete sind andere (``HttpClient``, ``HttpHeaders``, ``HttpParams`` aus ``@angular/common/http``) und die gelieferten Daten werden automatisch mit dem JSON-Parser in JavaScript-Objekte übergeführt. Der Aufruf von ``.map(resp => resp.json)`` entfällt somit. 
 
 Interessant ist auch, dass die ``set``-Methoden jeweils ein neues Objekt liefern anstatt das bestehende zu ändern. Deswegen sind diese aneinander zu ketten (z. B. ``new HttpParams().set('from', this.from).set('to', this.to);``).
 
