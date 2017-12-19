@@ -1,0 +1,87 @@
+<div class="card">
+
+  <div class="header">
+    <h2 class="title">Flight Search</h2>
+  </div>
+
+  <div class="content">
+
+    <form #f="ngForm" roundTrip>
+
+      <div *ngIf="!f?.valid">Fehler: {{f.errors  | json}}</div>
+
+      <div class="form-group">
+        <label>From:</label>
+        <input name="from" [(ngModel)]="from" class="form-control"
+               asyncCity city="Graz,Hamburg,München,Bern,Rom" required minlength="3" maxlength="30" pattern="[a-zA-ZöäüÖÄÜß ]*">
+
+        <div *ngIf="f?.controls['from']?.dirty && !f?.controls['from']?.valid">...Error...</div>
+        <div *ngIf="f?.controls['from']?.hasError('pattern')">...Pattern...</div>
+        <div *ngIf="f?.controls['from']?.hasError('city')">...city...</div>
+        <pre>{{f?.controls['from']?.errors | json}}</pre>
+        <div *ngIf="f?.controls['from']?.pending">
+          <marquee>Validiere!!</marquee>
+        </div>
+
+      </div>
+
+      <div class="form-group">
+        <label>To:</label>
+        <input name="to" [(ngModel)]="to" class="form-control">
+      </div>
+
+      <div class="form-group">
+        <button
+          class="btn btn-default"
+          (click)="search()"
+          [disabled]="!from || !to">Search</button>
+      </div>
+    </form>
+
+  </div>
+</div>
+
+
+<div class="row">
+  <div *ngFor="let f of flights" class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+
+    <flight-card
+      [item]="f"
+      [(selected)]="basket[f.id]"
+    ></flight-card>
+
+  </div>
+</div>
+
+<!--
+<div class="card">
+
+  <table class="table table-contensed" *ngIf="flights.length > 0">
+    <thead>
+    <tr>
+      <th>Id</th>
+      <th>From</th>
+      <th>To</th>
+      <th>Date</th>
+      <th></th>
+    </tr>
+    </thead>
+    <tr *ngFor="let f of flights" [class.active]="f === selectedFlight">
+      <td>{{f.id}}</td>
+      <td>{{f.from | city:'short' }}</td>
+      <td>{{f.to | city:'long'  }}</td>
+      <td>{{f.date | date:'dd.MM.yyyy HH:mm'}}</td>
+      <td>
+        <a (click)="select(f)">Select</a>
+      </td>
+    </tr>
+  </table>
+
+</div>
+-->
+
+<div class="card">
+  <div class="content">
+    <pre>{{ basket | json }}</pre>
+  </div>
+</div>
