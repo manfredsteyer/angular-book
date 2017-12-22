@@ -79,13 +79,13 @@ module.exports = {
   },
   "entry": {
     "main": [
-      "./src\\main.ts"
+      "./src/main.ts"
     ],
     "polyfills": [
-      "./src\\polyfills.ts"
+      "./src/polyfills.ts"
     ],
     "styles": [
-      "./src\\styles.css"
+      "./src/styles.css"
     ]
   },
   "output": {
@@ -100,8 +100,8 @@ module.exports = {
         "test": /\.js$/,
         "loader": "source-map-loader",
         "exclude": [
-          /(\\|\/)node_modules(\\|\/)/
-        ]
+          /(\/|\\)node_modules(\/|\\)/
+        ] 
       },
       {
         "test": /\.html$/,
@@ -117,7 +117,7 @@ module.exports = {
       },
       {
         "exclude": [
-          path.join(process.cwd(), "src\\styles.css")
+          path.join(process.cwd(), "src/styles.css")
         ],
         "test": /\.css$/,
         "use": [
@@ -140,7 +140,7 @@ module.exports = {
       },
       {
         "exclude": [
-          path.join(process.cwd(), "src\\styles.css")
+          path.join(process.cwd(), "src/styles.css")
         ],
         "test": /\.scss$|\.sass$/,
         "use": [
@@ -171,7 +171,7 @@ module.exports = {
       },
       {
         "exclude": [
-          path.join(process.cwd(), "src\\styles.css")
+          path.join(process.cwd(), "src/styles.css")
         ],
         "test": /\.less$/,
         "use": [
@@ -201,7 +201,7 @@ module.exports = {
       },
       {
         "exclude": [
-          path.join(process.cwd(), "src\\styles.css")
+          path.join(process.cwd(), "src/styles.css")
         ],
         "test": /\.styl$/,
         "use": [
@@ -231,7 +231,7 @@ module.exports = {
       },
       {
         "include": [
-          path.join(process.cwd(), "src\\styles.css")
+          path.join(process.cwd(), "src/styles.css")
         ],
         "test": /\.css$/,
         "use": [
@@ -254,7 +254,7 @@ module.exports = {
       },
       {
         "include": [
-          path.join(process.cwd(), "src\\styles.css")
+          path.join(process.cwd(), "src/styles.css")
         ],
         "test": /\.scss$|\.sass$/,
         "use": [
@@ -285,7 +285,7 @@ module.exports = {
       },
       {
         "include": [
-          path.join(process.cwd(), "src\\styles.css")
+          path.join(process.cwd(), "src/styles.css")
         ],
         "test": /\.less$/,
         "use": [
@@ -315,7 +315,7 @@ module.exports = {
       },
       {
         "include": [
-          path.join(process.cwd(), "src\\styles.css")
+          path.join(process.cwd(), "src/styles.css")
         ],
         "test": /\.styl$/,
         "use": [
@@ -353,7 +353,7 @@ module.exports = {
     new NoEmitOnErrorsPlugin(),
     new CopyWebpackPlugin([
       {
-        "context": "C:\\Users\\Manfred\\Documents\\kunden\\2017_10_Infonova\\src\\TypeScript\\src/",
+        "context": "C:/Users/Manfred/Documents/kunden/2017_10_Infonova/src/TypeScript/src/",
         "to": "",
         "from": {
           "glob": "assets/**/*",
@@ -361,7 +361,7 @@ module.exports = {
         }
       },
       {
-        "context": "C:\\Users\\Manfred\\Documents\\kunden\\2017_10_Infonova\\src\\TypeScript\\src/",
+        "context": "C:/Users/Manfred/Documents/kunden/2017_10_Infonova/src/TypeScript/src/",
         "to": "",
         "from": {
           "glob": "favicon.ico",
@@ -376,12 +376,12 @@ module.exports = {
     }),
     new ProgressPlugin(),
     new CircularDependencyPlugin({
-      "exclude": /(\\|\/)node_modules(\\|\/)/,
+      "exclude": /(\/|\\)node_modules(\/|\\)/,
       "failOnError": false
     }),
     new NamedLazyChunksWebpackPlugin(),
     new HtmlWebpackPlugin({
-      "template": "./src\\index.html",
+      "template": "./src/index.html",
       "filename": "./index.html",
       "hash": false,
       "inject": true,
@@ -447,10 +447,10 @@ module.exports = {
       "mainPath": "main.ts",
       "replaceExport": false,
       "hostReplacementPaths": {
-        "environments\\environment.ts": "environments\\environment.ts"
+        "environments/environment.ts": "environments/environment.ts"
       },
       "exclude": [],
-      "tsConfigPath": "src\\tsconfig.app.json",
+      "tsConfigPath": "src/tsconfig.app.json",
       "skipCodeGeneration": true
     })
   ],
