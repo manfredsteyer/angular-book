@@ -50,7 +50,7 @@ export class FlightManager {
             }
         };
 
-        let url = `http://angular.atangular-akademie.com/api/flug?abflugort=${encodeURIComponent(from)}&zielort=${encodeURIComponent(to)}`;
+        let url = `http://angular-akademie.com/api/flug?abflugort=${encodeURIComponent(from)}&zielort=${encodeURIComponent(to)}`;
         xmlhttp.open("GET", url);
         xmlhttp.send();
     }
@@ -76,7 +76,7 @@ export class FlightManager {
                 }
             };
         
-            var url = `http://angular.atangular-akademie.com/api/flight?from=${encodeURIComponent(from)}&to=${encodeURIComponent(to)}`;
+            var url = `http://angular-akademie.com/api/flight?from=${encodeURIComponent(from)}&to=${encodeURIComponent(to)}`;
             xmlhttp.open("GET", url, true);
             xmlhttp.send();
         });
