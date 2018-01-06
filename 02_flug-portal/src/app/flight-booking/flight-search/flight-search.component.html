@@ -18,7 +18,7 @@
         <div *ngIf="f?.controls['from']?.dirty && !f?.controls['from']?.valid">...Error...</div>
         <div *ngIf="f?.controls['from']?.hasError('pattern')">...Pattern...</div>
         <div *ngIf="f?.controls['from']?.hasError('city')">...city...</div>
-        <pre>{{f?.controls['from']?.errors | json}}</pre>
+        <pre *ngIf="!f?.controls['from']?.valid">{{f?.controls['from']?.errors | json}}</pre>
         <div *ngIf="f?.controls['from']?.pending">
           <marquee>Validiere!!</marquee>
         </div>

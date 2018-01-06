@@ -13,8 +13,8 @@ import { FlightService } from './flight.service';
 })
 export class FlightSearchComponent implements OnInit {
 
-  from: string;
-  to: string;
+  from: string = 'Hamburg';
+  to: string = 'Graz';
   // flights: Array<Flight> = [];
   selectedFlight: Flight;
 
